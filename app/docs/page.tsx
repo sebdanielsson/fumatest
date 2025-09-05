@@ -1,17 +1,18 @@
-import type { Route } from './+types/page';
+import type { PageTree } from 'fumadocs-core/server';
+import { toClientRenderer } from 'fumadocs-mdx/runtime/vite';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
   DocsBody,
   DocsDescription,
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/page';
-import { source } from '@/lib/source';
+import { LLMCopyButton, ViewOptions } from '@/components/ai/page-actions';
 import { baseOptions } from '@/lib/layout.shared';
-import { type PageTree } from 'fumadocs-core/server';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
+import { source } from '@/lib/source';
 import { docs } from '../../source.generated';
-import { toClientRenderer } from 'fumadocs-mdx/runtime/vite';
+import type { Route } from './+types/page';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const slugs = params['*'].split('/').filter((v) => v.length > 0);
@@ -33,6 +34,13 @@ const renderer = toClientRenderer(
         <meta name="description" content={frontmatter.description} />
         <DocsTitle>{frontmatter.title}</DocsTitle>
         <DocsDescription>{frontmatter.description}</DocsDescription>
+        {/* <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+          <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+          <ViewOptions
+            markdownUrl={`${page.url}.mdx`}
+            githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
+          />
+        </div> */}
         <DocsBody>
           <Mdx components={{ ...defaultMdxComponents }} />
         </DocsBody>

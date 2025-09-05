@@ -1,0 +1,28 @@
+[
+  {
+    "resource": "/Users/sebastian/Git/fumatest/app/lib/get-llm-text.ts",
+    "owner": "typescript",
+    "code": "2339",
+    "severity": 8,
+    "message": "Property '_file' does not exist on type 'MDXFileToPageData<{ title: string; description?: string | undefined; icon?: string | undefined; full?: boolean | undefined; _openapi?: { [x: string]: unknown; } | undefined; }>'.",
+    "source": "ts",
+    "startLineNumber": 16,
+    "startColumn": 21,
+    "endLineNumber": 16,
+    "endColumn": 26,
+    "origin": "extHost1"
+  },
+  {
+    "resource": "/Users/sebastian/Git/fumatest/app/lib/get-llm-text.ts",
+    "owner": "typescript",
+    "code": "2339",
+    "severity": 8,
+    "message": "Property 'content' does not exist on type 'MDXFileToPageData<{ title: string; description?: string | undefined; icon?: string | undefined; full?: boolean | undefined; _openapi?: { [x: string]: unknown; } | undefined; }>'.",
+    "source": "ts",
+    "startLineNumber": 17,
+    "startColumn": 22,
+    "endLineNumber": 17,
+    "endColumn": 29,
+    "origin": "extHost1"
+  }
+]

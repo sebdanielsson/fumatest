@@ -1,5 +1,5 @@
-import type { Config } from '@react-router/dev/config';
 import { glob } from 'node:fs/promises';
+import type { Config } from '@react-router/dev/config';
 import { createGetUrl, getSlugs } from 'fumadocs-core/source';
 
 const getUrl = createGetUrl('/docs');
@@ -17,6 +17,8 @@ export default {
     for await (const entry of glob('**/*.mdx', { cwd: 'content/docs' })) {
       paths.push(getUrl(getSlugs(entry)));
     }
+
+    paths.push('/docs/llms-full.txt');
 
     return paths;
   },
