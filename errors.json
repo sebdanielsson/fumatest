@@ -6,9 +6,9 @@
     "severity": 8,
     "message": "Property '_file' does not exist on type 'MDXFileToPageData<{ title: string; description?: string | undefined; icon?: string | undefined; full?: boolean | undefined; _openapi?: { [x: string]: unknown; } | undefined; }>'.",
     "source": "ts",
-    "startLineNumber": 16,
+    "startLineNumber": 12,
     "startColumn": 21,
-    "endLineNumber": 16,
+    "endLineNumber": 12,
     "endColumn": 26,
     "origin": "extHost1"
   },
@@ -19,9 +19,9 @@
     "severity": 8,
     "message": "Property 'content' does not exist on type 'MDXFileToPageData<{ title: string; description?: string | undefined; icon?: string | undefined; full?: boolean | undefined; _openapi?: { [x: string]: unknown; } | undefined; }>'.",
     "source": "ts",
-    "startLineNumber": 17,
+    "startLineNumber": 13,
     "startColumn": 22,
-    "endLineNumber": 17,
+    "endLineNumber": 13,
     "endColumn": 29,
     "origin": "extHost1"
   }
