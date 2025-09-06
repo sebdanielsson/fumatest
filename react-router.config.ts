@@ -18,7 +18,8 @@ export default {
       paths.push(getUrl(getSlugs(entry)));
     }
 
-    paths.push('/docs/llms-full.txt');
+    paths.push('/llms-full.txt');
+    paths.push('/llms.txt');
 
     return paths;
   },

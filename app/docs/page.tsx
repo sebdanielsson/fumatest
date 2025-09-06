@@ -21,26 +21,30 @@ export async function loader({ params }: Route.LoaderArgs) {
 
   return {
     path: page.path,
+    url: page.url,
     tree: source.pageTree,
   };
 }
 
 const renderer = toClientRenderer(
   docs.doc,
-  ({ toc, default: Mdx, frontmatter }) => {
+  (
+    { toc, default: Mdx, frontmatter },
+    { url, path }: { url: string; path: string },
+  ) => {
     return (
       <DocsPage toc={toc}>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.description} />
         <DocsTitle>{frontmatter.title}</DocsTitle>
         <DocsDescription>{frontmatter.description}</DocsDescription>
-        {/* <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
-          <LLMCopyButton markdownUrl={`${page.url}.mdx`} />
+        <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
+          <LLMCopyButton markdownUrl={`docs${url}.mdx`} />
           <ViewOptions
-            markdownUrl={`${page.url}.mdx`}
-            githubUrl={`https://github.com/${owner}/${repo}/blob/dev/apps/docs/content/docs/${page.path}`}
+            markdownUrl={`${url}.mdx`}
+            githubUrl={`https://github.com/sebdanielsson/fumatest/blob/main/content/docs/${path}`}
           />
-        </div> */}
+        </div>
         <DocsBody>
           <Mdx components={{ ...defaultMdxComponents }} />
         </DocsBody>
@@ -50,12 +54,12 @@ const renderer = toClientRenderer(
 );
 
 export default function Page(props: Route.ComponentProps) {
-  const { tree, path } = props.loaderData;
+  const { tree, path, url } = props.loaderData;
   const Content = renderer[path];
 
   return (
     <DocsLayout {...baseOptions()} tree={tree as PageTree.Root}>
-      <Content />
+      <Content url={url} path={path} />
     </DocsLayout>
   );
 }
