@@ -39,7 +39,10 @@ const renderer = toClientRenderer(
         <DocsTitle>{frontmatter.title}</DocsTitle>
         <DocsDescription>{frontmatter.description}</DocsDescription>
         <div className="flex flex-row gap-2 items-center border-b pt-2 pb-6">
-          <LLMCopyButton markdownUrl={`docs${url}.mdx`} />
+          <LLMCopyButton
+            /* markdownUrl={`docs${url}.mdx`} */
+            markdownUrl={`https://github.com/sebdanielsson/fumatest/blob/main/content/docs/${path}`}
+          />
           <ViewOptions
             markdownUrl={`${url}.mdx`}
             githubUrl={`https://github.com/sebdanielsson/fumatest/blob/main/content/docs/${path}`}
